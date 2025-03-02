@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'> <!-- Ваш внешний файл стилей -->
+    <title>Custom Element Example</title>
+</head>
+<body>
+
+    <!-- Используем наш пользовательский тег с текстом внутри -->
+    <my-element class="blue">че</my-element>
+
+    <script>
+        // Создаём новый класс для тега <my-element>
+        class MyElement extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({mode: 'open'}); // Создаём Shadow DOM
+
+                // Используем шаблон для установки стилей и структуры
+                this.shadowRoot.innerHTML = `
+                    <style>
+                        .cont {
+                            text-align: center;
+                        }
+                        .adik {
+                            background-color: rgba(200, 1, 255, 0);
+                        }
+                    </style>
+                    <div class="cont"><p><mark class="adik"><span class="name"></span></mark></p></div>
+                `;
+            }
+
+            connectedCallback() {
+                // Получаем текст, который был передан в элемент, и вставляем его в Shadow DOM
+                const textContent = this.textContent.trim();  // Получаем текст внутри элемента
+                
+                // Вставляем текст в элемент с классом 'name'
+                this.shadowRoot.querySelector('.name').textContent = textContent || this.localName;
+
+                // Получаем все классы родительского элемента
+                const parentClasses = this.classList;
+
+                // Переносим все классы родительского элемента в Shadow DOM
+                parentClasses.forEach(className => {
+                    this.shadowRoot.querySelector('.cont').classList.add(className); // Применяем классы к .cont
+                    this.shadowRoot.querySelector('.adik').classList.add(className); // Применяем классы к .adik
+                });
+            }
+        }
+
+        // Регистрируем наш тег с именем 'my-element'
+        customElements.define('my-element', MyElement);
+    </script>
+
+</body>
+</html>
