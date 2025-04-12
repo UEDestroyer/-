@@ -11,6 +11,9 @@
     width: 5px;
 
 }
+.circle{
+    position:absolute;
+}
 .palks{
     position: absolute;
     z-index: 0;
