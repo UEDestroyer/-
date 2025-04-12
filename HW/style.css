@@ -1,0 +1,53 @@
+.eins{
+    border: 2px solid cyan;
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    position: relative;
+}
+.palka1{
+    background-color: cyan;
+    height: 100px;
+    width: 5px;
+
+}
+.palks{
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    display: flex;
+    align-items: flex-start;
+    height: 200px;
+    width: 5px;
+    animation: anim 86400s forwards;
+
+    margin-left: 50%;
+}
+.palka2{
+    background-color: cyan;
+    height: 80px;
+    width: 5px;
+}
+.palks2{
+    position: absolute;
+    top:20px;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    height: 160px;
+    width: 5px;
+    animation: anim 60s forwards;
+
+    margin-left: 50%;
+}
+@keyframes anim{
+    0%{
+        transform: rotateZ(0deg) ;
+    }
+    50%{
+        transform: rotateZ(180deg) ;
+    }
+    100%{
+        transform: rotateZ(360deg) ;
+    }
+}
