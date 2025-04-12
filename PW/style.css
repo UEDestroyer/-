@@ -1,0 +1,126 @@
+.EINS{
+    border: 3px solid orange;
+    width: 300px;
+    height: 50px;
+}
+.progress{
+    width: 50px;
+    height: 50px;
+    background-color: orange;
+    animation: prog 600s forwards;
+    animation-iteration-count: infinite;
+}
+@keyframes prog {
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(250px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+
+
+.ZWEI{
+    perspective: 1000px;
+    position: relative;
+    height: 500px;
+    margin: 0 20% ;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+.left{
+    left: 0;
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    border: 5px solid rgb(85, 0, 85);
+    background-color: purple;
+    z-index: 1;
+}
+.right{
+    right: 0;
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    border: 5px solid rgb(85, 0, 85);
+    background-color: purple;
+    z-index: 1;
+}
+.p h1{
+    z-index: 0;
+    margin: 50% 0;
+    text-shadow: 50px;
+    align-self: center;
+}
+.p{
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
+}
+.ZWEI:hover .right{
+    transition-duration: 3s;
+    transform: rotateY(-60deg);
+}
+.ZWEI:hover .left{
+    transition-duration: 3s;
+    transform: rotateY(60deg);
+}
+
+
+
+
+.one{
+    transform: translateX(500vh);
+    animation: vulet 5s forwards;
+}
+.two{
+    transform: translateX(500vh);
+    animation: vulet 10s forwards;
+}
+.three{
+    transform: translateX(500vh);
+    animation: vulet 20s forwards;
+}
+.four{
+    transform: translateX(500vh);
+    animation: vulet 40s forwards;
+}
+.five{
+    transform: translateX(500vh);
+    animation: vulet 80s forwards;
+}
+.six{
+    transform: translateX(500vh);
+    animation: vulet 160s forwards;
+}
+.seven{
+    transform: translateX(500vh);
+    animation: vulet 320s forwards;
+}
+.eight{
+    transform: translateX(500vh);
+    animation: vulet 640s forwards;
+}
+.nine{
+    transform: translateX(500vh);
+    animation: vulet 1280s forwards;
+}
+.ten{
+    transform: translateX(500vh);
+    animation: vulet 2560s forwards;
+}
+
+@keyframes vulet{
+    0%{
+        transform: translateX(500vh);
+    }
+    100%{
+        transform: translateX(0vh);
+    }
+}
